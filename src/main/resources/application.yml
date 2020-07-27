@@ -2,11 +2,18 @@ mongodb:
   max:
     pool:
       size: 300
+server:
+  port : 8080
+
+
+file:
+  upload-dir: /home/goreit
 
 spring:
   servlet:
-  multipart:
-    max-file-size: 3MB
+    multipart:
+     enabled: true
+     max-file-size: 3MB
   application:
     name: opf2
   data:
@@ -17,3 +24,8 @@ spring:
       port: 27017
       password: admin
       username: admin
+
+logging:
+  level:
+    org:
+    springframework: ERROR

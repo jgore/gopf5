@@ -6,7 +6,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import java.time.LocalDateTime;
 
 @Document
-public class Payment {
+public class Interchange {
 
     @Id
     private String id;
@@ -19,11 +19,16 @@ public class Payment {
 
     private LocalDateTime updatedAt;
 
-    public Payment(String creditorAccountNo, String debtorAccountNo) {
+    private String xml;
+
+    private Status status;
+
+    public Interchange(String creditorAccountNo, String debtorAccountNo, String xml) {
         this.creditorAccountNo = creditorAccountNo;
         this.debtorAccountNo = debtorAccountNo;
         this.createdAt = LocalDateTime.now();
         this.updatedAt = LocalDateTime.now();
+        this.xml = xml;
     }
 
     public String getId() {
@@ -44,5 +49,24 @@ public class Payment {
 
     public LocalDateTime getUpdatedAt() {
         return updatedAt;
+    }
+
+    public String getXml() {
+        return xml;
+    }
+
+    @Override
+    public String toString() {
+        return "Payment{" +
+                "id='" + id + '\'' +
+                ", creditorAccountNo='" + creditorAccountNo + '\'' +
+                ", debtorAccountNo='" + debtorAccountNo + '\'' +
+                ", createdAt=" + createdAt +
+                ", updatedAt=" + updatedAt +
+                '}';
+    }
+
+    public enum Status {
+        DELIVERED, REJECTED, ACCEPTED
     }
 }

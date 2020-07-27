@@ -1,0 +1,17 @@
+{
+  "type": "object",
+  "properties": {
+    "creditorAccount": {
+      "type": "string"
+    },
+    "debtorAccount": {
+      "type": "string"
+    },
+    "amount": {
+      "type": "integer"
+    },
+    "xml": {
+      "type": "string"
+    }
+  }
+}

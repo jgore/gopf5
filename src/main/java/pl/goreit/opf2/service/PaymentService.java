@@ -1,13 +1,13 @@
 package pl.goreit.opf2.service;
 
-import pl.goreit.opf2.model.Payment;
+import pl.goreit.opf2.model.Interchange;
 
 import java.util.List;
 
 public interface PaymentService {
 
-    Payment create(String creditor, String debtor);
+    Interchange create(String creditor, String debtor, String json);
 
-    List<Payment> getAll();
+    List<Interchange> getAll();
 
 }
